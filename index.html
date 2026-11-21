@@ -105,7 +105,8 @@
   .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
   .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); }
   .brand img { width: 32px; height: 32px; }
-  .wordmark { font-family: var(--display); font-stretch: 125%; font-weight: 800; font-size: 17px; letter-spacing: .06em; }
+  /* Matches the app's wordmark: system font (SF Pro), weight 800, uppercase, tracking 3pt at 11pt (~0.27em) */
+  .wordmark { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 800; font-size: 15px; letter-spacing: .27em; text-transform: uppercase; margin-right: -.27em; }
   .nav-cta { font-weight: 500; font-size: 15px; text-decoration: none; color: var(--ink); display: inline-flex; gap: 8px; align-items: center; }
   .nav-cta span { transition: transform .25s var(--ease); }
   .nav-cta:hover span { transform: translateX(3px); }
@@ -359,7 +360,7 @@
   /* ---------- Footer ---------- */
   footer { background: var(--night); color: var(--night-muted); padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); font-size: 15px; }
   footer .wrap { display: grid; gap: 32px; }
-  footer .brand { color: var(--night-text); }
+  footer .brand { color: var(--lime); }
   footer nav { display: flex; flex-wrap: wrap; gap: 10px 28px; }
   footer a { text-decoration: none; color: var(--night-text); }
   footer a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--lime); }
