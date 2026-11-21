@@ -396,20 +396,6 @@
     .item:nth-child(3) { margin-top: 112px; }
   }
 
-  /* ---------- Pricing ---------- */
-  .pricing { padding: 0 0 clamp(96px, 12vw, 160px); }
-  .pricing .wrap { display: grid; gap: 40px; border-top: 1px solid var(--rule); padding-top: clamp(56px, 7vw, 88px); }
-  .pricing h2 { font-size: clamp(44px, 6vw, 80px); margin-bottom: 20px; }
-  .plans { border-top: 1px solid var(--ink); }
-  .plan { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 6px 20px; padding: 24px 0; border-bottom: 1px solid var(--rule); }
-  .plan .name { font-weight: 600; color: var(--ink); font-size: 18px; }
-  .plan .price { font-family: var(--display); font-stretch: 74%; font-weight: 800; font-size: clamp(40px, 4.6vw, 56px); color: var(--ink); line-height: 1; text-align: right; font-variant-numeric: tabular-nums; }
-  .plan .price small { font-family: var(--sans); font-stretch: 100%; font-weight: 500; font-size: 15px; color: var(--muted); margin-left: 4px; }
-  .plan .sub { grid-column: 1 / -1; color: var(--muted); font-size: 15px; }
-  .plan .save { display: inline-block; font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; background: var(--ink); color: var(--lime); padding: 3px 7px; border-radius: 5px; margin-left: 8px; vertical-align: 2px; }
-  .pricing .fine { margin-top: 18px; font-size: 14px; color: var(--muted); }
-  @media (min-width: 980px) { .pricing .wrap { grid-template-columns: 5fr 6fr; gap: 96px; } }
-
   /* ---------- Final ---------- */
   .final { background: var(--night); padding: clamp(80px, 11vw, 150px) 0; border-bottom: 1px solid var(--night-rule); }
   .final .wrap { display: grid; gap: 40px; }
@@ -468,17 +454,11 @@
     .rest .skip-btn { height: 42px; padding: 0 16px; }
     .units button { padding: 11px 18px; font-size: 14px; }
     .units-note { display: block; margin: 12px 0 0; }
-    .plan .save { font-size: 12px; }
     footer nav { gap: 0 24px; }
     footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
     .brand { min-height: 44px; }
     .ch1 .crop { height: 380px; }
     .board .crop { height: 360px; }
-  }
-  @media (max-width: 440px) {
-    .plan { grid-template-columns: 1fr; gap: 8px; }
-    .plan .price { text-align: left; }
-    .plan .name { display: flex; align-items: center; justify-content: space-between; }
   }
   @media (max-width: 370px) {
     .dock .t span { display: none; }
@@ -693,24 +673,6 @@
           <h3>57 exercises, plus yours</h3>
           <p>Search by muscle or equipment, add custom exercises, and see every set you've ever logged.</p>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section class="pricing" aria-labelledby="price-h">
-    <div class="wrap">
-      <div>
-        <p class="label rv" style="margin-bottom:24px">Pricing</p>
-        <h2 id="price-h" class="rv d1">Try it free<br>for 7 days.</h2>
-        <p class="lead rv d2">Then pick monthly or yearly. Cancel anytime.</p>
-      </div>
-      <div class="rv d2">
-        <div class="plans">
-          <div class="plan"><span class="name">Monthly</span><span class="price">$9.99<small>/ month</small></span></div>
-          <div class="plan"><span class="name">Yearly <span class="save">Save 41%</span></span><span class="price">$69.99<small>/ year</small></span><span class="sub">Works out to $5.83 a month.</span></div>
-        </div>
-        <p class="fine">Prices in USD. Subscriptions are managed through your Apple ID.</p>
       </div>
     </div>
   </section>
