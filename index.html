@@ -287,7 +287,7 @@
   .chart-top .v { font-family: var(--display); font-stretch: 74%; font-weight: 800; font-size: clamp(40px, 5vw, 64px); color: var(--night-text); line-height: 1; margin-top: 8px; }
   .chart-top .v small { font-size: .42em; font-weight: 700; margin-left: 4px; }
   .delta { font-family: var(--mono); font-size: 13px; color: var(--lime); white-space: nowrap; padding-top: 4px; }
-  @media (max-width: 560px) { .chart .axis { font-size: 22px; } .chart-top { flex-direction: column; gap: 4px; } .chart-top .v { margin-bottom: 4px; } .delta { order: 2; padding-top: 0; } }
+  @media (max-width: 560px) { .chart-top { flex-direction: column; gap: 4px; } .chart-top .v { margin-bottom: 4px; } .delta { order: 2; padding-top: 0; } }
   .chart svg { width: 100%; height: auto; display: block; overflow: visible; }
   .chart .grid line { stroke: #2A312B; stroke-dasharray: 3 5; }
   .chart .axis { font-family: var(--mono); font-size: 11px; fill: #7C877E; }
@@ -381,6 +381,38 @@
   @media (min-width: 860px) { .dock { display: none; } }
   @media (max-width: 859px) { footer { padding-bottom: calc(110px + env(safe-area-inset-bottom)); } }
   @media (max-width: 520px) { .nav-cta { display: none; } }
+
+
+  /* ---------- Phone refinements ---------- */
+  a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+  .hero .kicker { align-items: flex-start; }
+  .hero .kicker::before { flex: none; margin-top: .45em; }
+  @media (max-width: 560px) {
+    .chart .axis { font-size: 30px; }
+    .chart .axis .y { display: none; }
+    .demo-head .label, .rest .label { font-size: 12px; }
+    .set .val { height: 42px; }
+    .set .chk { height: 42px; width: 44px; }
+    .rest .skip-btn { height: 42px; padding: 0 16px; }
+    .units button { padding: 11px 18px; font-size: 14px; }
+    .units-note { display: block; margin: 12px 0 0; }
+    .plan .save { font-size: 12px; }
+    footer nav { gap: 0 24px; }
+    footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
+    .brand { min-height: 44px; }
+    .ch1 .crop { height: 380px; }
+    .board .crop { height: 360px; }
+  }
+  @media (max-width: 440px) {
+    .plan { grid-template-columns: 1fr; gap: 8px; }
+    .plan .price { text-align: left; }
+    .plan .name { display: flex; align-items: center; justify-content: space-between; }
+  }
+  @media (max-width: 370px) {
+    .dock .t span { display: none; }
+    .facts .fact p { font-size: 14px; }
+    .hero .kicker { font-size: 11.5px; letter-spacing: .03em; }
+  }
 
   /* ---------- Motion ---------- */
   .js .rv { opacity: 0; transform: translateY(18px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
@@ -540,7 +572,7 @@
           <svg viewBox="0 0 620 260" role="img" aria-label="Line chart of estimated one-rep max for bench press rising from 211 to 217.5 pounds over 30 days">
             <defs><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B6F36A" stop-opacity=".22"/><stop offset="1" stop-color="#B6F36A" stop-opacity="0"/></linearGradient></defs>
             <g class="grid"><line x1="44" x2="610" y1="30" y2="30"/><line x1="44" x2="610" y1="85" y2="85"/><line x1="44" x2="610" y1="140" y2="140"/><line x1="44" x2="610" y1="195" y2="195"/></g>
-            <g class="axis"><text x="0" y="34">220</text><text x="0" y="89">215</text><text x="0" y="144">210</text><text x="0" y="199">205</text><text x="44" y="252">Oct 20</text><text x="610" y="252" text-anchor="end">Nov 13</text></g>
+            <g class="axis"><text class="y" x="0" y="34">220</text><text class="y" x="0" y="89">215</text><text class="y" x="0" y="144">210</text><text class="y" x="0" y="199">205</text><text x="44" y="252">Oct 20</text><text x="610" y="252" text-anchor="end">Nov 13</text></g>
             <path class="area" d="M60 129 L150 195 L240 129 L330 118 L420 118 L510 118 L600 52.5 L600 220 L60 220 Z"/>
             <path class="ln" pathLength="1" d="M60 129 L150 195 L240 129 L330 118 L420 118 L510 118 L600 52.5"/>
             <g><circle class="pt" cx="60" cy="129" r="5"/><circle class="pt" cx="150" cy="195" r="5"/><circle class="pt" cx="240" cy="129" r="5"/><circle class="pt" cx="330" cy="118" r="5"/><circle class="pt" cx="420" cy="118" r="5"/><circle class="pt" cx="510" cy="118" r="5"/><circle class="pt" cx="600" cy="52.5" r="6"/></g>
@@ -638,7 +670,7 @@
 </footer>
 
 <div class="dock" id="dock" aria-hidden="true">
-  <div class="t"><b>SPOTTER</b>Coming soon to iPhone</div>
+  <div class="t"><b>SPOTTER</b><span>Coming soon to iPhone</span></div>
   <a href="#join" tabindex="-1">Join the waitlist</a>
 </div>
 
