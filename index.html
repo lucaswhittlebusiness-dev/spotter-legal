@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SPOTTER: Strength Tracker</title>
-<meta name="description" content="SPOTTER is the strength tracker for iPhone. Log a set in one tap, catch every personal record automatically, and see what's working. Join the waitlist for launch.">
+<meta name="description" content="SPOTTER is the strength tracker for iPhone. Log a set in one tap, catch every personal record automatically, see what's working, and share every PR. Join the waitlist for launch.">
 <meta name="theme-color" content="#B6F36A">
 <link rel="canonical" href="https://downloadspotter.com/">
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -348,6 +348,57 @@
     .ch2 .shot { margin-top: 220px; width: 100%; max-width: 360px; }
   }
 
+
+  /* ---------- Chapter: share cards ---------- */
+  .ch-share { padding: 0 0 clamp(96px, 12vw, 160px); }
+  .ch-share .wrap { display: grid; gap: 48px; }
+  .ch-share .label { margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+  .new { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--lime); background: var(--ink); padding: 3px 8px; border-radius: 6px; }
+  .ch-share h2 { margin-bottom: 26px; }
+  .ch-share .kinds { margin-top: 40px; }
+  .cards { display: grid; grid-auto-flow: column; grid-auto-columns: 74%; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-right: calc(var(--gutter) * -1); padding: 4px var(--gutter) 40px 0; }
+  .cards::-webkit-scrollbar { display: none; }
+  .cards figure { scroll-snap-align: start; }
+  @media (min-width: 980px) {
+    .ch-share .wrap { grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; }
+    .cards { grid-auto-flow: initial; grid-template-columns: 1fr 1fr; gap: 28px; overflow: visible; margin: 0; padding: 0; }
+    .cards figure:nth-child(2) { margin-top: 88px; }
+  }
+
+  /* Share card, authored at the app's 360pt artboard (1cqw = 3.6pt) */
+  .sc { container-type: inline-size; transition: transform .5s var(--ease); }
+  .cards figure:hover .sc { transform: translateY(-6px); }
+  .sc .card {
+    aspect-ratio: 9 / 16; display: flex; flex-direction: column; overflow: hidden;
+    background: #101210; color: #F4F5F1; border: 1px solid #354238; border-radius: calc(24cqw / 3.6); padding: calc(26cqw / 3.6);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    box-shadow: 0 1px 0 rgba(255,255,255,.06) inset, 0 40px 70px -30px rgba(16,18,16,.6), 0 4px 12px rgba(16,18,16,.15);
+    font-variant-numeric: tabular-nums;
+  }
+  .sc .b { display: flex; align-items: center; gap: calc(8cqw / 3.6); }
+  .sc .b i { width: calc(12cqw / 3.6); height: calc(12cqw / 3.6); border-radius: calc(4cqw / 3.6); background: #B6F36A; }
+  .sc .b span { color: #B6F36A; font-size: calc(15cqw / 3.6); font-weight: 900; letter-spacing: calc(4cqw / 3.6); }
+  .sc .kick { color: #B6F36A; font-size: calc(11cqw / 3.6); font-weight: 800; letter-spacing: calc(1.6cqw / 3.6); }
+  .sc .ttl { font-size: calc(32cqw / 3.6); font-weight: 900; letter-spacing: calc(-1.1cqw / 3.6); margin-top: calc(6cqw / 3.6); line-height: 1.1; }
+  .sc .big { color: #B6F36A; font-size: calc(78cqw / 3.6); font-weight: 900; letter-spacing: calc(-3cqw / 3.6); line-height: 1.05; margin-top: calc(30cqw / 3.6); }
+  .sc .unit { color: #9DA79F; font-size: calc(15cqw / 3.6); font-weight: 600; }
+  .sc .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(10cqw / 3.6); margin-top: calc(24cqw / 3.6); }
+  .sc .stats div { background: #202720; border: 1px solid #354238; border-radius: calc(14cqw / 3.6); padding: calc(12cqw / 3.6) 0; text-align: center; }
+  .sc .stats b { display: block; font-size: calc(22cqw / 3.6); font-weight: 900; letter-spacing: calc(-.5cqw / 3.6); }
+  .sc .stats small { display: block; color: #9DA79F; font-size: calc(9cqw / 3.6); font-weight: 800; letter-spacing: calc(1.2cqw / 3.6); margin-top: calc(2cqw / 3.6); }
+  .sc ul { list-style: none; margin-top: calc(22cqw / 3.6); display: grid; gap: calc(10cqw / 3.6); }
+  .sc li { display: flex; justify-content: space-between; gap: calc(10cqw / 3.6); font-size: calc(14cqw / 3.6); font-weight: 700; }
+  .sc li span:last-child { color: #9DA79F; white-space: nowrap; }
+  .sc .foot { margin-top: auto; color: #6E786F; font-size: calc(11cqw / 3.6); font-weight: 600; text-align: center; }
+  .sc .pr { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .sc .trophy { width: calc(96cqw / 3.6); height: calc(96cqw / 3.6); border-radius: 50%; background: #B6F36A; display: grid; place-items: center; }
+  .sc .trophy svg { width: calc(44cqw / 3.6); height: calc(44cqw / 3.6); }
+  .sc .pr .kick { margin-top: calc(26cqw / 3.6); }
+  .sc .prn { font-size: calc(26cqw / 3.6); font-weight: 900; letter-spacing: calc(-.8cqw / 3.6); margin-top: calc(6cqw / 3.6); }
+  .sc .prb { color: #B6F36A; font-size: calc(96cqw / 3.6); font-weight: 900; letter-spacing: calc(-4cqw / 3.6); line-height: 1.05; margin-top: calc(14cqw / 3.6); }
+  .sc .pill { margin-top: calc(16cqw / 3.6); background: rgba(182,243,106,.14); color: #B6F36A; border-radius: 99px; padding: calc(6cqw / 3.6) calc(14cqw / 3.6); font-size: calc(11cqw / 3.6); font-weight: 800; letter-spacing: calc(1.2cqw / 3.6); }
+  .sc .sub { color: #9DA79F; font-size: calc(13cqw / 3.6); font-weight: 600; margin-top: calc(12cqw / 3.6); }
+
   /* ---------- Chapter 03: progress ---------- */
   .ch3 { padding: 0 0 clamp(96px, 12vw, 160px); }
   .ch3 .head { display: grid; gap: 24px; margin-bottom: clamp(40px, 5vw, 64px); }
@@ -611,12 +662,72 @@
     </div>
   </section>
 
+  <!-- 03 Share cards -->
+  <section class="ch-share" aria-labelledby="share-h">
+    <div class="wrap">
+      <div>
+        <p class="label rv">03 — Sharing <span class="new">New</span></p>
+        <h2 id="share-h" class="rv d1"><span class="line">Lift it.</span><span class="line">Post it.</span></h2>
+        <p class="lead rv d2">Turn any PR or finished workout into a story-ready card in one tap. Post it, send it to the group chat, or save it to Photos.</p>
+        <ul class="kinds rv">
+          <li><span class="k">Personal best</span><span class="d">The lift, the number and the kind of record, front and center.</span></li>
+          <li><span class="k">Workout</span><span class="d">Total volume, sets, time and PRs, plus your top lifts of the session.</span></li>
+          <li><span class="k">Anywhere</span><span class="d">Sized 1080 × 1920 for Stories. Share to any app from the share sheet.</span></li>
+        </ul>
+      </div>
+
+      <div class="cards">
+        <figure class="rv d1">
+          <div class="sc" role="img" aria-label="Example SPOTTER personal record card: Barbell Bench Press, 185 pounds for 6 reps, heaviest weight, estimated one-rep max 222 pounds">
+            <div class="card" aria-hidden="true">
+              <div class="b"><i></i><span>SPOTTER</span></div>
+              <div class="pr">
+                <div class="trophy"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#101210" d="M7 2h10v2h3.5v3.2A4.3 4.3 0 0 1 16.6 11.5a5.6 5.6 0 0 1-3.6 3.3V18h3.5v3.5h-9V18H11v-3.2a5.6 5.6 0 0 1-3.6-3.3A4.3 4.3 0 0 1 3.5 7.2V4H7V2Zm0 4H5.5v1.2c0 1 .6 1.9 1.5 2.3V6Zm10 0v3.5c.9-.4 1.5-1.3 1.5-2.3V6H17Z"/></svg></div>
+                <div class="kick">NEW PERSONAL RECORD</div>
+                <div class="prn">Barbell Bench Press</div>
+                <div class="prb">185</div>
+                <div class="unit">lb × 6 reps</div>
+                <div class="pill">HEAVIEST WEIGHT</div>
+                <div class="sub">Est. 1RM 222 lb</div>
+              </div>
+              <div class="foot">Alex Carter · November 13, 2026</div>
+            </div>
+          </div>
+          <figcaption class="fig"><b>Fig. 3</b> — Personal best card. Sample data.</figcaption>
+        </figure>
+        <figure class="rv d2">
+          <div class="sc" role="img" aria-label="Example SPOTTER workout card: Upper, 14.9 thousand pounds total volume, 18 sets, 58 minutes, 2 PRs, with the top five lifts">
+            <div class="card" aria-hidden="true">
+              <div class="b"><i></i><span>SPOTTER</span></div>
+              <div style="margin-top: calc(34cqw / 3.6)">
+                <div class="kick">FRIDAY, NOV 13</div>
+                <div class="ttl">Upper</div>
+              </div>
+              <div class="big">14.9k</div>
+              <div class="unit">lb total volume</div>
+              <div class="stats"><div><b>18</b><small>SETS</small></div><div><b>58m</b><small>TIME</small></div><div><b>2</b><small>PRS</small></div></div>
+              <ul>
+                <li><span>Barbell Bench Press</span><span>185 × 6</span></li>
+                <li><span>Barbell Row</span><span>149 × 9</span></li>
+                <li><span>Shoulder Press</span><span>105 × 8</span></li>
+                <li><span>Incline Dumbbell Press</span><span>60 × 10</span></li>
+                <li><span>Lat Pulldown</span><span>140 × 10</span></li>
+              </ul>
+              <div class="foot">Alex Carter · Track yours with SPOTTER</div>
+            </div>
+          </div>
+          <figcaption class="fig"><b>Fig. 4</b> — Workout card. Sample data.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- 03 Progress -->
   <section class="ch3" aria-labelledby="ch3-h">
     <div class="wrap">
       <div class="head">
         <div>
-          <p class="label rv">03 — Progress</p>
+          <p class="label rv">04 — Progress</p>
           <h2 id="ch3-h" class="rv d1"><span class="line">See what's</span><span class="line">working.</span></h2>
         </div>
         <p class="lead rv d2">Volume, strength and muscle balance over 7 days, 30 days, 90 days or all time. Spot the lift that's climbing and the one that's stalled.</p>
@@ -636,7 +747,7 @@
             <path class="ln" pathLength="1" d="M60 129 L150 195 L240 129 L330 118 L420 118 L510 118 L600 52.5"/>
             <g><circle class="pt" cx="60" cy="129" r="5"/><circle class="pt" cx="150" cy="195" r="5"/><circle class="pt" cx="240" cy="129" r="5"/><circle class="pt" cx="330" cy="118" r="5"/><circle class="pt" cx="420" cy="118" r="5"/><circle class="pt" cx="510" cy="118" r="5"/><circle class="pt" cx="600" cy="52.5" r="6"/></g>
           </svg>
-          <figcaption class="fig"><b>Fig. 3</b> — Strength progression, 30 days. Sample data.</figcaption>
+          <figcaption class="fig"><b>Fig. 5</b> — Strength progression, 30 days. Sample data.</figcaption>
         </figure>
         <div class="phone-col">
           <div class="crop"><img src="assets/shot-charts.webp" width="640" height="1337" alt="SPOTTER progress screen with workout count, volume, streak, PR count and a strength progression chart" loading="lazy" decoding="async"></div>
@@ -650,26 +761,26 @@
     <div class="wrap">
       <div class="head">
         <div>
-          <p class="label rv">04 — And the rest</p>
+          <p class="label rv">05 — And the rest</p>
           <h2 id="ch4-h" class="rv d1"><span class="line">Built for the</span><span class="line">long game.</span></h2>
         </div>
       </div>
       <div class="rail">
         <article class="item rv">
           <div class="tile"><img src="assets/shot-routines.webp" width="640" height="1337" alt="Workout screen with saved routines and programs like Push Pull Legs and Upper Lower" loading="lazy" decoding="async"></div>
-          <span class="num">04.1</span>
+          <span class="num">05.1</span>
           <h3>Routines &amp; programs</h3>
           <p>Follow Push Pull Legs, Upper Lower or a Bro Split, or build routines around your own week.</p>
         </article>
         <article class="item rv d1">
           <div class="tile"><img src="assets/shot-leaderboard.webp" width="640" height="1337" alt="Compete screen with weekly XP, level progress and achievement badges" loading="lazy" decoding="async"></div>
-          <span class="num">04.2</span>
+          <span class="num">05.2</span>
           <h3>Friends &amp; weekly XP</h3>
           <p>Earn XP every session, unlock badges, and see who's training hardest on the weekly leaderboard.</p>
         </article>
         <article class="item rv d2">
           <div class="tile"><img src="assets/shot-library.webp" width="640" height="1337" alt="Exercise library searchable by muscle group and equipment" loading="lazy" decoding="async"></div>
-          <span class="num">04.3</span>
+          <span class="num">05.3</span>
           <h3>57 exercises, plus yours</h3>
           <p>Search by muscle or equipment, add custom exercises, and see every set you've ever logged.</p>
         </article>
